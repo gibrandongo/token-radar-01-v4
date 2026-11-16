@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — Analog Edition</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1>Token Radar <span class="tag">Analog Edition</span></h1>
+    <p class="sub">Pre-token protocols ranked by what launched peers imply they could be worth — and how to farm each one. Snapshot: %%AS_OF%%.</p>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section class="panel method">
+  <h2>How this radar works</h2>
+  <p id="universe">%%UNIVERSE_LINE%%</p>
+  <p id="model">%%MODEL_LINE%%</p>
+  <p id="oos"><strong>Honest check.</strong> %%OOS_LINE%%</p>
+  <p class="fine">Language matters: a protocol here <em>records</em> no token in the snapshot; that is not proof it has none. Implied value is this model's claim, never a prediction that a token will be issued, or when. Protocols whose token already trades are excluded from the board and used only as analogs.</p>
+</section>
+
+<section class="panel controls">
+  <label>Search <input id="q" type="search" placeholder="Name, slug, or chain…" autocomplete="off"></label>
+  <label>Category <select id="cat"><option value="">All categories</option></select></label>
+  <label>Analog tier <select id="tier"><option value="">All tiers</option><option>Strong analogs</option><option>Fair analogs</option><option>Thin analogs</option></select></label>
+  <label>Effort <select id="effort"><option value="">Any effort</option><option>Light touch</option><option>Steady routine</option><option>Heavy routine</option></select></label>
+  <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+  <label>Sort <select id="sort"><option value="rank">Rank (implied value)</option><option value="tvl">TVL</option><option value="multiple">Analog multiple</option><option value="strength">Analog strength</option><option value="growth">7-day growth</option><option value="age">Age (days listed)</option></select></label>
+  <span class="count" id="count"></span>
+</section>
+
+<main class="layout">
+  <section class="panel board">
+    <h2>Board <span class="hint">Click a row for its detail view. Click a column header to sort.</span></h2>
+    <table id="board">
+      <thead><tr>
+        <th data-k="rank">#</th><th data-k="name">Protocol</th><th data-k="category">Category</th>
+        <th data-k="tvl">TVL</th><th data-k="growth">7d</th><th data-k="multiple">Multiple</th>
+        <th data-k="implied">Implied value</th><th data-k="strength">Analog tier</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+  <aside class="panel detail" id="detail" aria-live="polite"></aside>
+</main>
+
+<footer class="fine">Farm plans are generic, category-based routines with time and gas bands from the snapshot's own chain list. They are not financial advice. Verify every protocol yourself before depositing funds.</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
